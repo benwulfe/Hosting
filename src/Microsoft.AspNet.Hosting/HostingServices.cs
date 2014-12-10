@@ -36,6 +36,7 @@ namespace Microsoft.AspNet.Hosting
             yield return describer.Singleton<ITypeActivator, TypeActivator>();
 
             yield return describer.Instance<IApplicationLifetime>(new ApplicationLifetime());
+            yield return describer.Instance<IHostingKeepAlive>(new ConsoleHostingKeepAlive());
 
             // TODO: Do we expect this to be provide by the runtime eventually?
             yield return describer.Singleton<ILoggerFactory, LoggerFactory>();
